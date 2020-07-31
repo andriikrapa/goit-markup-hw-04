@@ -4,6 +4,7 @@
     --accent-color: #2196F3;
     --primary-bg-color: #ffffff;
     --second-bg-color: #F5F4FA;
+    --svg-bg-color: #AFB1B8;
 }
 
 html {
@@ -13,8 +14,12 @@ html {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: inherit; 
+}
 
+*:focus{
+    
+    outline-color: var(--accent-color);
 }
 
 body{
@@ -181,11 +186,6 @@ footer {
     margin-left: auto;
 }
 
-.address li{
-    padding-top: 32px;
-    padding-bottom: 32px;
-}
-
 .address li:not(:last-child){
     margin-right: 50px;
 }
@@ -193,11 +193,29 @@ footer {
 .address a{
     color: var(--primary-text-color);
     font-style: normal;
+    display: flex;
+    align-items: center;
+    fill: var(--primary-text-color);
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .address a:hover,
 .address a:focus{
     color: var(--accent-color);
+    fill: var(--accent-color)
+}
+
+.address-mail svg{
+    width: 16px;
+    height: 11px;
+    margin-right: 10px;
+}
+
+.address-smartphone svg{
+    width: 10px;
+    height: 15px;
+    margin-right: 10px;
 }
 
 /* Section */
@@ -219,7 +237,7 @@ footer {
 }
 
 .section.hero h1{
-    color: goldenrod; /* После установки фоновой картинки изменить на #FFFFFF */
+    color: var(--primary-bg-color); /* После установки фоновой картинки изменить на #FFFFFF */
     margin-top: 0;
     margin-bottom: 30px;
 }
@@ -275,6 +293,23 @@ footer {
     line-height: 1.71;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.about-us-items-bg{
+    background-color: var(--second-bg-color);
+    width: 270px;
+    height: 120px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.about-us-items svg{
+    width: 70px;
+    height: 70px;
+    fill: var(--title-text-color);
 }
 
 /* Section What we do */
@@ -377,12 +412,19 @@ footer {
     background-color: #fff;
     justify-content: center;
     align-items: center;
+    margin-bottom: 24px;
+    fill: var(--svg-bg-color);
 }
 
 .our-team-cocial-list svg{
     width: 20px;
     height: 20px;
-    margin-bottom: 24px;
+}
+
+.our-team-cocial-list a:hover,
+.our-team-cocial-list a:focus{
+    background-color:var(--accent-color);
+    fill: var(--primary-bg-color);
 }
 
 /* Section Our Clients */
@@ -396,6 +438,33 @@ footer {
     margin-top: 0;
     margin-bottom: 50px;
     text-align: center;
+}
+
+.our-clients ul{
+    display: flex;
+    margin: -15px;
+}
+
+.our-clients a{
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 170px;
+    height: 90px;
+    border: 1px solid var(--svg-bg-color);
+    border-radius: 4px;
+    margin: 15px;
+
+    fill: var(--svg-bg-color);
+    
+}
+
+.our-clients a:hover,
+.our-clients a:focus{
+    border-color: var(--accent-color); 
+    fill: var(--accent-color);
 }
 
 /* Footer */
@@ -420,6 +489,47 @@ footer {
     margin-top: 72px;
     margin-right: 94px;
 }
+
+/* footer-join-us icons SVG */
+
+.footer-join-us ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: -5px;
+    margin-top: 20px;
+}
+
+.footer-join-us li{
+    margin: 5px;
+}
+
+.footer-join-us a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 44px;
+
+    background: rgba(255, 255, 255, 0.1);
+    fill: var(--primary-bg-color);
+}
+
+.footer-join-us svg{
+    width: 20px;
+    height: 20px;
+}
+
+.footer-join-us a:hover,
+.footer-join-us a:focus{
+    background-color:var(--accent-color);
+    fill: var(--primary-bg-color);
+}
+
+/* footer-subscribe-form */
 
 .footer-subscribe-form{
     margin-top: 72px;
@@ -451,15 +561,26 @@ footer {
     height: 50px;
     text-align: center;
     border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
+/* самолётик на кнопке как svg */
+/* .button.subscribe-icon-send::after{
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    content: "";
+    background-image: url("../images/sprite.svg#icon-send");
+    background-size: contain; 
+} */
 
-.button.subscribe-aircraft{
+/* самолётик на кнопке в фоне */
+.button.subscribe-icon-send{
     background-image: url("../images/subscribe-aircraft.png");
     background-repeat: no-repeat;
     background-position: right 28px center;
     padding-right: 62px;
-    padding-left: 29px;
-    
+    padding-left: 29px;  
 }
 
 
@@ -499,6 +620,14 @@ footer {
     height: 38px;
     text-align: center;
     border: none;
+}
+.portfolio-button:hover{
+    background: var(--accent-color);
+    color: var(--primary-bg-color);
+
+    cursor: pointer;
+
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Portfolio Items */
